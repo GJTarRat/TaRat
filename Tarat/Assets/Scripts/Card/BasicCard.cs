@@ -11,7 +11,7 @@ public class BasicCard : Card {
     public List<Text> outcomes;
     public List<Text> hints;
     public List<Text> predictions;
-    int randomint;
+    public int randomint;
     public SpriteRenderer cardSprite;
     public Text chosenPrediction;
     public Text chosenHint;
@@ -37,7 +37,6 @@ public class BasicCard : Card {
         chosenPrediction = predictions[randomint];
         chosenHint = hints[randomint];
         chosenOutcome = outcomes[randomint];
-        print("cardlogic");
     }
 
 }

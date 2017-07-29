@@ -8,13 +8,9 @@ public abstract class Generator : MonoBehaviour {
 
 	
 	// Update is called once per frame
-    protected virtual int GenerationProcedure ( List<GameObject> 
-            GameObjects) {
+    protected virtual int GenerationProcedure (List<GameObject> GameObjects) {
         int RandInt;
         RandInt = Random.Range(0, GameObjects.Count);
-
-        print(RandInt);
-
         return RandInt;
 	}
 
