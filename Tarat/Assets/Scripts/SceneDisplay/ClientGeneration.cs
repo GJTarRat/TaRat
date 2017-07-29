@@ -22,5 +22,6 @@ public class ClientGeneration : Generator {
 
         GenerationProcedure(jacket);
         GenerationProcedure(hair);
+
     }
 }

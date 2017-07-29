@@ -14,4 +14,5 @@ public abstract class Generator : MonoBehaviour {
 
         print(RandInt);
 	}
+
 }
