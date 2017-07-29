@@ -7,9 +7,29 @@ public class BasicCard : Card {
 
     [SerializeField]
     private Text story;
+    [SerializeField]
+    private Text outcome1;
+    [SerializeField]
+    private Text outcome2;
+    [SerializeField]
+    private Text outcome3;
+    [SerializeField]
+    private Text hint1;
+    [SerializeField]
+    private Text hint2;
+    [SerializeField]
+    private Text hint3;
+    [SerializeField]
+    private Text prediction1;
+    [SerializeField]
+    private Text prediction2;
+    [SerializeField]
+    private Text prediction3;
 
-	// Use this for initialization
-	void Start ()
+
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
