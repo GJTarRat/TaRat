@@ -1,6 +1,8 @@
-Zimorodek/Temp/
-Zimorodek/Library/
 *.csproj
 *.userprefs
 Tarat/Temp/UnityLockfile
 Tarat/Library/
+<<<<<<< HEAD
+=======
+Tarat/Temp/
+>>>>>>> 164dc192e1142a40babd3d13e34ee7304532309c
