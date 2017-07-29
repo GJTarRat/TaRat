@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class ClientGeneration : Generator {
 
-    [SerializeField]
-    List <GameObject> jacket;
-    [SerializeField] 
-    List <GameObject> hair;
-
-
-    public Transform SpawnPoint_jacket;
-    public Transform SpawnPoint_hair;
+    [SerializeField] List <GameObject> jacket;
+    [SerializeField] List <GameObject> hair;
+    [SerializeField] List <Transform> SpawnPoint;
 
     private GameObject spawnObject_jacket;
     private GameObject spawnObject_hair;
@@ -28,16 +23,17 @@ public class ClientGeneration : Generator {
 
 
         SpawnClient();
-
+        print(SpawnPoint.Count);
     }
 
     void SpawnClient () {
-        spawnObject_jacket = Instantiate(jacket[Random.Range(0, jacket.Count)], 
-            SpawnPoint_jacket.position, SpawnPoint_jacket.rotation);
-
-        spawnObject_hair = Instantiate(hair[Random.Range(0, hair.Count)], 
-            SpawnPoint_hair.position, SpawnPoint_hair.rotation);
+        for (int i = 0; i < SpawnPoint.Count; i++)
+        {
+            spawnObject_jacket = Instantiate(jacket[Random.Range(0, jacket.Count)], 
+                SpawnPoint[i].position, SpawnPoint[i].rotation);
+        }
     }
+
 
     void OnDisable (){
         Destroy(spawnObject_jacket);
