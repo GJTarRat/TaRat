@@ -2,15 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClientGeneration : MonoBehaviour {
+public class ClientGeneration : Generator {
+
+    [SerializeField]
+    List <GameObject> jacket;
+    [SerializeField] 
+    List <GameObject> hair;
+
+
+
+
 
 	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void OnEnable () {
+        //int RandomJacket;
+        //int RandomHair;
+        //RandomJacket = Random.Range(0, jacket.Count - 1);
+        //RandomHair = Random.Range(0, hair.Count - 1);
+
+        GenerationProcedure(jacket);
+        GenerationProcedure(hair);
+    }
 }
