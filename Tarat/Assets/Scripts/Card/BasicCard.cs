@@ -11,19 +11,28 @@ public class BasicCard : Card {
     public List<Text> hints;
     public List<Text> predictions;
     int randomint;
-    
-    
-      
+    public Text chosenPrediction;
+    public Text chosenHint;
+    public Text chosenOutcome;
+
     // Use this for initialization
     void OnEnable ()
     {
-        randomint = Random.Range(0, predictions.Count);
-    
+       
     }
-	
+
 	// Update is called once per frame
 	void Update ()
     {
 		
 	}
+
+    public void cardlogic ()
+    {
+        randomint = Random.Range(0, predictions.Count);
+        chosenPrediction = predictions[randomint];
+        chosenHint = hints[randomint];
+        chosenOutcome = outcomes[randomint];
+    }
+
 }
