@@ -31,22 +31,22 @@ public class ClientGeneration : Generator {
     void SpawnClient () {
         for (int i = 0; i < 1; i++)
         {
-            // Check if Rep exceeds 70 AFTER scoring
-            if (RepData.ReputationPoints < RepData.RepBorderLow)
+            // Check if Rep less or equal than lower border
+            if (RepData.ReputationPoints <= RepData.RepBorderLow)
             {
-                socialStatus = SocialStatus[Random.Range(1, SocialStatus.Count)];
+                socialStatus = SocialStatus[2]/*[Random.Range(1, SocialStatus.Count)]*/;
                 print(socialStatus + "This is Rep");
             }
-            // Check if Rep is less than 30 AFTER scoring
-            else if (RepData.ReputationPoints > RepData.RepBorderHigh)
+            // Check if Rep is more or equal than high border
+            else if (RepData.ReputationPoints >= RepData.RepBorderHigh)
             {
-                socialStatus = SocialStatus[Random.Range(0, SocialStatus.Count - 1)];
+                socialStatus = SocialStatus[0]/*[Random.Range(0, SocialStatus.Count - 1)]*/;
                 print(socialStatus + "This is Rep");
             }
             // for all other cases between 70 > x < 30.
             else
             {
-                socialStatus = SocialStatus[Random.Range(0, SocialStatus.Count)];
+                socialStatus = SocialStatus[1]/*[Random.Range(0, SocialStatus.Count)]*/;
                 print(socialStatus + "This is Rep");
             }
 
