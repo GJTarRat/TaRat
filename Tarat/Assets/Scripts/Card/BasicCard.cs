@@ -6,27 +6,7 @@ using UnityEngine.UI;
 public class BasicCard : Card {
 
     [SerializeField]
-    private Text story;
-    //[SerializeField]
-    //private Text outcome1;
-    //[SerializeField]
-    //private Text outcome2;
-    //[SerializeField]
-    //private Text outcome3;
-    //[SerializeField]
-    //private Text hint1;
-    //[SerializeField]
-    //private Text hint2;
-    //[SerializeField]
-    //private Text hint3;
-    //[SerializeField]
-    //private Text prediction1;
-    //[SerializeField]
-    //private Text prediction2;
-    //[SerializeField]
-    //private Text prediction3;
-
-    
+    private Text story;   
     public List<Text> outcomes;
     public List<Text> hints;
     public List<Text> predictions;
@@ -37,8 +17,8 @@ public class BasicCard : Card {
     // Use this for initialization
     void OnEnable ()
     {
-        randomint = Random.Range(1, 3);
-
+        randomint = Random.Range(0, predictions.Count);
+    
     }
 	
 	// Update is called once per frame
