@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RepAndCash : MonoBehaviour {
 
     public ClientGeneration clientGeneration;
+
+    [SerializeField] Text RepScore;
+    [SerializeField] Text CashScore;
 
     //Computer tools to keep track of current values for cash and rep
     public static int myCash;
@@ -22,9 +26,17 @@ public class RepAndCash : MonoBehaviour {
     public int RepBorderLow = 30;
 
     // FOR USE DURING LETTER SCENE
-	public void UpdateScores () {
-		myCash += CashPoints;
-		myRep += ReputationPoints;
+    public void UpdateScores () {
+        RepScore.text = ReputationPoints.ToString();
+        CashScore.text = CashPoints.ToString();
+
+        //Add Delay
+        print("short delay");
+
+        CashPoints += myCash;
+        ReputationPoints += myRep;
+
+        // Add Animation or whatevs
 	}
 
 

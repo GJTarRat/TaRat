@@ -6,7 +6,7 @@ public class ClientGeneration : Generator {
 
     public RepAndCash RepData;
 
-    [SerializeField] protected List <GameObject> jacket;
+    [SerializeField] List <GameObject> jacket;
     [SerializeField] List <GameObject> hair;
     [SerializeField] List <GameObject> skin;
     [SerializeField] List <GameObject> pants;
