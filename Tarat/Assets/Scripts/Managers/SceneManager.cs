@@ -16,4 +16,8 @@ public class SceneManager : Singleton<SceneManager> {
         Application.Quit();
         print("The game has quit");
     }
+
+    public void MainMenu (string mainMenu) {
+        Application.LoadLevel(mainMenu);
+    } 
 }
