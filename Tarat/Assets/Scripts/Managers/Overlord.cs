@@ -70,6 +70,7 @@ public class Overlord : Singleton<Overlord> {
         DisplayLetter();
 
         chosenSet.Clear();
+
     }
 
     public void DisplayLetter()
@@ -88,6 +89,15 @@ public class Overlord : Singleton<Overlord> {
         clientGeneration.gameObject.SetActive(true);
     }
 
+    void PointsSet()
+    {
+        repSet.Add(repAndCash.myRep);
+        repAndCash.UpdateScores();
+        repAndCash.myRep = 0;
+        repAndCash.myCash = 0;
+
+    }
+
     void CompareAnswers()
     {
         if (!isNextClient)
@@ -97,6 +107,7 @@ public class Overlord : Singleton<Overlord> {
         //print(clientsCounter);
 
         chosenSet.Add(LogicGenerator.Instance.chosenCard);
+
 
         if (answer == logicGenerator.chosenCard.randomint)
         {
@@ -109,6 +120,8 @@ public class Overlord : Singleton<Overlord> {
             print("wrong");
         }
 
+        PointsSet();
+        
         //GenerateCard();       
 
     }

@@ -16,12 +16,14 @@ public class FeedbackLetter : MonoBehaviour {
 
     void OnEnable()
     {
+        DescribeOutcomes();
+        DescribeReputation();
+
         accumulatedCash.text = repAndCash.CashPoints.ToString();
         accumulatedRep.text = repAndCash.ReputationPoints.ToString();
 
-        DescribeOutcomes();
-
     }
+
 	// Use this for initialization
 	void Start () {
 		
@@ -48,7 +50,8 @@ public class FeedbackLetter : MonoBehaviour {
 
         foreach (var item in repChange)
         {
-
+            item.text = Overlord.Instance.repSet[i].ToString();
+            i++;
         }
     }
 }

@@ -11,8 +11,8 @@ public class RepAndCash : MonoBehaviour {
     [SerializeField] Text CashScore;
 
     //Computer tools to keep track of current values for cash and rep
-    public static int myCash;
-	public static int myRep;
+    public int myCash;
+	public int myRep;
 
     //Fixed numbers that the player will see appear when it's time to witness
     // scores
