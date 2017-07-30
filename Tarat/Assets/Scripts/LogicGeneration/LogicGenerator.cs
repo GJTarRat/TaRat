@@ -15,22 +15,6 @@ public class LogicGenerator : Generator {
 
     public Action BasicCardEvent;
 
-    private void OnEnable()
-    {
-        //if (cardSet.Count < 1)
-        //{
-        //    //cardSet.Clear();
-        //    cardSet.AddRange(GetComponentsInChildren<BasicCard>(true));
-        //}
-
-        //int randomInt = UnityEngine.Random.Range(0, cardSet.Count);
-        //chosenCard = cardSet[randomInt];
-        //cardSet.Remove(chosenCard);
-        //chosenCard.gameObject.SetActive(true);
-
-        //SetText();
-        //SetCardSprite();      
-    }
 
     public void GenerateCard()
     {
@@ -62,19 +46,9 @@ public class LogicGenerator : Generator {
     }
 
     void SetCardSprite()
-    {
-       // print(Overlord.clientsCounter);
-     
-        UIManager.Instance.cardHolders[0].sprite = chosenCard.cardSprite.sprite;
-
-
-        //foreach (var item in UIManager.Instance.cardHolders)
-        //{
-        //    item.sprite = null;
-        //    Overlord.clientsCounter = 0;
-        //}
+    {     
+        UIManager.Instance.cardSpriteHolder.sprite = chosenCard.cardSprite.sprite;
     }
-
 
     void DisplayCard(int carndNum)
     {
