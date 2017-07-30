@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class UIManager : Singleton<UIManager>, IPointerDownHandler{
+public class UIManager : Singleton<UIManager>{
 
     protected UIManager() { }
 
@@ -13,7 +13,7 @@ public class UIManager : Singleton<UIManager>, IPointerDownHandler{
     
     public Text hint;
     public List<Text> predictions;
-    public List<SpriteRenderer> cardHolders;
+    public SpriteRenderer cardSpriteHolder;
     public Text outcome;
 
     // Use this for initialization
@@ -27,9 +27,4 @@ public class UIManager : Singleton<UIManager>, IPointerDownHandler{
     {
 		
 	}
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        //Overlord.Instance.logicGenerator.GenerateCard();
-    }
 }

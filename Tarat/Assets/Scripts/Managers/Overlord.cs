@@ -11,7 +11,7 @@ public class Overlord : Singleton<Overlord> {
     public LogicGenerator logicGenerator;
     public ClientGeneration clientGeneration;
 
-    public static int clientsCounter =1;
+    public static int clientsCounter =0;
 
     public bool isNextClient = false;
 
@@ -26,16 +26,14 @@ public class Overlord : Singleton<Overlord> {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            GenerateCard();
-            if (clientsCounter > 3)
-                print("clinetsCounter > 3");
-        }
-
+        if (clientsCounter <= 3)
+            isNextClient = false;
+        else
+            isNextClient = true;           
+        
         InputManager();
 
-        if (clientsCounter > 3)
+        if (isNextClient)
             Reshuffle();
     }
 
@@ -58,20 +56,20 @@ public class Overlord : Singleton<Overlord> {
         }
     }
 
-
     public void Reshuffle()
     {
         print("Reshuffle");
 
-        UIManager.Instance.cardHolders[0].sprite = null;
-        Overlord.clientsCounter = 0;
+        UIManager.Instance.cardSpriteHolder.sprite = null;
+        isNextClient = false;
 
         GenerateClient();
     }
 
-    void GenerateCard()
+    public void GenerateCard()
     {
         logicGenerator.GenerateCard();
+        print("gene");
     }
 
     void GenerateClient()
@@ -81,17 +79,19 @@ public class Overlord : Singleton<Overlord> {
     }
 
     void CompareAnswers()
-    {
+    {       
+
+        if (!isNextClient)
+            GenerateCard();
+
         clientsCounter++;
         print(clientsCounter);
+        //if (answer == logicGenerator.chosenCard.randomint)
+        // print("correct");
+        //else        
+        //print("wrong");
 
-        if (answer == logicGenerator.chosenCard.randomint)
-            print("correct");
-        else        
-            print("wrong");
-
-        GenerateCard();
-        
+        //GenerateCard();       
 
     }
 
