@@ -15,11 +15,12 @@ public class UIManager : Singleton<UIManager>{
     public List<Text> predictions;
     public SpriteRenderer cardSpriteHolder;
     public Text outcome;
+    public GameObject feedLetter;
 
     // Use this for initialization
     void Start ()
     {
-		
+        feedLetter.SetActive(false);
 	}
 	
 	// Update is called once per frame

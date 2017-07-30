@@ -5,7 +5,9 @@ using System;
 using UnityEngine.EventSystems;
 
 
-public class LogicGenerator : Generator {
+public class LogicGenerator : Singleton<LogicGenerator> {
+
+    LogicGenerator() { }
 
     [SerializeField]
     List<BasicCard> cardSet;

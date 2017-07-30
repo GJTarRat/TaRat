@@ -10,6 +10,10 @@ public class Overlord : Singleton<Overlord> {
 
     public LogicGenerator logicGenerator;
     public ClientGeneration clientGeneration;
+    public RepAndCash repAndCash;
+
+    public List<BasicCard> chosenSet;
+    public List<int> repSet;
 
     public static int clientsCounter =0;
 
@@ -63,7 +67,14 @@ public class Overlord : Singleton<Overlord> {
         UIManager.Instance.cardSpriteHolder.sprite = null;
         isNextClient = false;
 
+        DisplayLetter();
 
+        chosenSet.Clear();
+    }
+
+    public void DisplayLetter()
+    {
+        UIManager.Instance.feedLetter.SetActive(true);
     }
 
     public void GenerateCard()
@@ -78,17 +89,25 @@ public class Overlord : Singleton<Overlord> {
     }
 
     void CompareAnswers()
-    {       
-
+    {
         if (!isNextClient)
             GenerateCard();
 
         clientsCounter++;
-        print(clientsCounter);
-        //if (answer == logicGenerator.chosenCard.randomint)
-        // print("correct");
-        //else        
-        //print("wrong");
+        //print(clientsCounter);
+
+        chosenSet.Add(LogicGenerator.Instance.chosenCard);
+
+        if (answer == logicGenerator.chosenCard.randomint)
+        {
+            print("correct");
+            repAndCash.PointGeneration(true);
+        }
+        else
+        {
+            repAndCash.PointGeneration(false);
+            print("wrong");
+        }
 
         //GenerateCard();       
 
