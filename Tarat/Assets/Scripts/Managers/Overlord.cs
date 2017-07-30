@@ -33,7 +33,7 @@ public class Overlord : Singleton<Overlord> {
         
         InputManager();
 
-        if (isNextClient)
+        if (!isNextClient && clientsCounter > 3)
             Reshuffle();
     }
 
@@ -59,17 +59,16 @@ public class Overlord : Singleton<Overlord> {
     public void Reshuffle()
     {
         print("Reshuffle");
-
+        GenerateClient();
         UIManager.Instance.cardSpriteHolder.sprite = null;
         isNextClient = false;
 
-        GenerateClient();
+
     }
 
     public void GenerateCard()
     {
         logicGenerator.GenerateCard();
-        print("gene");
     }
 
     void GenerateClient()
