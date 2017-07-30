@@ -6,24 +6,25 @@ public class ClientGeneration : Generator {
 
     public RepAndCash RepData;
 
-    [SerializeField] List <GameObject> jacket;
-    [SerializeField] List <GameObject> hair;
-    [SerializeField] List <GameObject> skin;
-    [SerializeField] List <GameObject> pants;
+    [SerializeField] List <GameObject> Character;
     [SerializeField] List <Transform> SpawnPoint;
     [SerializeField] List <int> SocialStatus;
+    [SerializeField] List <string> CharNames;
 
-    private GameObject spawnObject_jacket;
-    private GameObject spawnObject_hair;
-    private GameObject spawnObject_skinColor;
-    private GameObject spawnObject_pants;
+    private GameObject spawnObject_Character;
+
 
     public int socialStatus;
+
+    private string characterName;
+    private int genderMale;
+
+
 
 	// Use this for initialization
     void OnEnable ()
     {
-        GenerationProcedure(jacket);
+        GenerationProcedure(Character);
 
         SpawnClient();
     }
@@ -50,17 +51,32 @@ public class ClientGeneration : Generator {
                 print(socialStatus + "This is Rep");
             }
 
-            spawnObject_jacket = Instantiate(jacket[Random.Range(0, jacket.Count)], 
-                SpawnPoint[0].position, SpawnPoint[0].rotation);
-            spawnObject_hair = Instantiate(hair[Random.Range(0, hair.Count)], 
-                SpawnPoint[1].position, SpawnPoint[1].rotation);
+            genderMale = Random.Range(0, 2);
+            print(genderMale);
+
+            if(genderMale == 1.0f)
+            {
+                characterName = CharNames[Random.Range(0, 6)];
+                spawnObject_Character = Instantiate(Character[Random.Range(0, 2)], 
+                    SpawnPoint[0].position, SpawnPoint[0].rotation);
+            }
+            else
+            {
+                characterName = CharNames[Random.Range(6, 11)];
+                spawnObject_Character = Instantiate(Character[Random.Range(2, 4)], 
+                    SpawnPoint[0].position, SpawnPoint[0].rotation);
+            }
+
+            print(characterName + " is a human " + genderMale + " (1 being male" +
+                ", 0 being female)");
+
         }
     }
 
     void OnDisable (){
-            Destroy(spawnObject_jacket);
-            Destroy(spawnObject_hair);
+        Destroy(spawnObject_Character);
 
+        characterName = "";
         socialStatus = 0;
     }
 }
