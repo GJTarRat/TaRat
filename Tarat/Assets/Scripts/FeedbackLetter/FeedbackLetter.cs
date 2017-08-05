@@ -12,10 +12,12 @@ public class FeedbackLetter : MonoBehaviour {
     public List<Text> repChange;
     public Text accumulatedRep;
     public Text accumulatedCash;
+    public Text cashIncome;
    
 
     void OnEnable()
     {
+        cashIncome.text = "+$" + Overlord.Instance.income.ToString();
         DescribeOutcomes();
         DescribeReputation();
 

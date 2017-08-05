@@ -12,6 +12,8 @@ public class Overlord : Singleton<Overlord> {
     public ClientGeneration clientGeneration;
     public RepAndCash repAndCash;
 
+    public GameObject gameOverGO;
+
     public List<BasicCard> chosenSet;
     public List<int> repSet;
 
@@ -20,6 +22,7 @@ public class Overlord : Singleton<Overlord> {
     public bool isNextClient = false;
 
     public int answer;
+    public int income;
 
 	// Use this for initialization
 	void Start ()
@@ -71,6 +74,8 @@ public class Overlord : Singleton<Overlord> {
 
         chosenSet.Clear();
 
+        repSet.Clear();
+
     }
 
     public void DisplayLetter()
@@ -91,11 +96,17 @@ public class Overlord : Singleton<Overlord> {
 
     void PointsSet()
     {
+        income = 3 * repAndCash.myCash;
         repSet.Add(repAndCash.myRep);
         repAndCash.UpdateScores();
         repAndCash.myRep = 0;
         repAndCash.myCash = 0;
+    }
 
+    void GameOver()
+    {
+        if (repAndCash.ReputationPoints <= 0)
+            gameOverGO.SetActive(true);
     }
 
     void CompareAnswers()
@@ -121,8 +132,10 @@ public class Overlord : Singleton<Overlord> {
         }
 
         PointsSet();
+
+        GameOver();
         
-        //GenerateCard();       
+        //GenerateCard();      
 
     }
 

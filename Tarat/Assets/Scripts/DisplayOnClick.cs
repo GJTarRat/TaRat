@@ -17,7 +17,6 @@ public class DisplayOnClick : MonoBehaviour, IPointerDownHandler {
     }
 
 
-
     // Use this for initialization
     void Start () {
 		
